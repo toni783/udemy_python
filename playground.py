@@ -20,6 +20,37 @@ elif name == 'gilbert':
 else:
     print(name)
 
+
+#logical operators
+a = 1
+b = 1 
+
+a > b # returns True
+a <  b # returns True
+a >= b # returns False
+a <= b # returns False
+
+not True # returns False since not negates condition
+
+
+if a and b : #if a and b are true do condition 
+    #execute your code 
+    a = True
+elif a or b :  #if a or  b are true do condition 
+     #execute your code 
+     a =  False
+
+
+a is b # returns True since they share same space in memory
+a == b # returns True since they share the same value
+
+a = [1,2]
+b = [1,2]
+
+a is b # returns False since they not share same space in memory
+a == b # returns True since they share the same value
+
+
 #loops 
 
 #for value in iterable:
@@ -56,4 +87,160 @@ my_list.append([1,2]) # my_list value is [0,1,2,[1,2]]
 my_list.extend(range(1,3)) # my_list value is [0,1,2,1,2]
 
 #insert item to list in a specefic position 
+my_list.insert(0,'hola')  # my_list value is ['hola',0,1,2,1,2]
+
+#clear all elements from list
+
+my_list.clear()  # my_list value is []
+
+#delete element from list (optional: use that value later in a variable)
+
+popped_element = my_list.pop() #by default delete last element from list and its now in variable
+                               #pop can delete by index with pop(index)
+
+# remove item from list if match its found in list,only removes the first incidence found
+
+my_list = [1,2,2,2]
+
+my_list.remove(2)  # my_list value is [1,2,2,2] ,   
+
+# get index of item if a match its found in list,only gets the index of  the first incidence found
+
+my_list.index(1) # returns index 0 
+
+# count number of incidences in list 
+
+my_list.count()
+
+# reverse content of a list 
+
+my_list = [1,2,2,2]
+my_list.reverse()  # set the list value to [2, 2, 2, 1]
+
+#sort simple (we can sort by the criteria that we want later)
+
+my_list = [1,3,2]
+
+my_list.sort() #returns [1,2,3] 
+
+#join values of list of strings 
+
+my_list = ['hello ', 'word']
+
+', '.join(my_list) # returns 'hello , word' (join can only be used with a list of str)
+
+#slicing list (copy of list to another variable ) slicing can be used in any iterable objects 
+
+#my_list[start: end: step] 
+
+#start = index of start for the array.
+#end =  index of end for the array,exclusive range so it doesnt count the end range
+#step = intervals that we want the copy to make (if wanted with intervals ) .
+
+my_list = [1,2,3,4,5,6] 
+
+my_list[0:] #copy of all elements of the list
+my_list[:] #copy of all elements of the list
+ 
+my_list[1:]  #copy elements of the list starting from the index 1 of the list
+
+my_list[-1:]  #returns copy array  [6]
+my_list[-2:]  #returns copy array  [5,6]
+
+my_list[1:3] #returns copy array  [2,3] , exclusive range in the end 
+
+my_list[:-1] #returns copy array   [1,2,3,4,5] ,we copy backwards and dont take in account the end limit
+
+my_list[::2] #returns copy array  [1,3,5] since we take a step of 2 values
+
+my_list[::-1] #returns copy array [ 6,5,4,3,2,1],reverse the array
+
+my_list[1:3]  =[ 'a', 'b','c' ]  # returns copy array [1, 'a', 'b','c' ,2,3,4,5,6] so we copy the array and insert new values in the range 
+
+my_list = [ 'hola', 'adios']
+
+my_list[0][::-1] #retorna 'aloh', reversing the string
+
+#swaping elements of a list 
+
+my_list = [ 'hola', 'adios']
+
+my_list[0] , my_list[1] = my_list[1] , my_list[0] # returns ['adios', 'hola']   
+
+# Lists Comprehensions(for each in other lenguages)
+
+my_list = [1,2,3]
+
+#[var_name for varName in list] structure of list Comprehensions
+
+my_list2 = [nm * 2 for nm in my_list] #returns a new list with  [2, 4, 6] since we are multiplying times 2 each value of the list
+
+#with conditionals we have
+
+[nm * 2 for nm in my_list if nm%2 == 0] #only if we have a logical operator
+
+[nm * 2  if nm%2 == 0  else nm *3 for nm in my_list ] #multiple logical operators go like this 
+
+# using nested operations in list Comprehensions
+
+[['x' for x in range(1,4)] for value in range(1,4)] #returns  [['x', 'x', 'x'], ['x', 'x', 'x'], ['x', 'x', 'x']] ,nested operation 
+
+#dictionaries (objects in other lenguages)
+
+person = {'name': 'Gilbert' , 27: 'my age'} #value of key in list  permitted its string or number
+
+#using the dict() function for creating a dictionary
+
+person = dict(name = 'Pedro', age = 44)  #creates dictionary {'name': 'Pedro', 'age': 44}
+
+person['name'] # returns value pedro
+
+#format string with dictionary values 
+
+artist = {
+    "first": "Neil",
+    "last": "Young",
+}
+
+full_name = "{} {}".format(artist["first"],artist["last"])  #returns  Neil Young 
+
+# dictionarys are not iterable objects!!!!!!, if we want to iterate a dictionary 
+# we need to use the methods keys() ,values() or items() more of this in the next code blocks
+
+#search value in dictionary
+
+'Pedro' in person # by default the in will search in the dictionary by key so doesnt returns anything 
+
+'Pedro' in person.values() # here it will search the value in the values of the dictionary
+
+#delete data from the dictionary
+
+person.clear()
+
+#copy dictionary (make copy to another space in memory)
+copyPerson = person.copy()
+
+#init dictionary
+
+   #dict.fromKeys can be used to
+{}.fromkeys( ['name', 'address'], None ) # returns {'name': None, 'address': None} 
+
+#get value of dictionary by key 
+
+person.get('name') # returns Pedro if the dictionary have a property name ,if not returns None
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
