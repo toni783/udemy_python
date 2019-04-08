@@ -266,8 +266,37 @@ artist['first'] = 'Neily'
 performer.update(artist) # performer now have the key/values {"first": "Neily","last": "Young"} ,so the update() method
                          # adds the key/values if they dont exist and if they exist they will update the values based in his keys 
 
- 
+# Dictionary  Comprehensions (kinda like for each in other lenguages ,map in javascript )
 
+#manipulate existing dictionary 
+numbers = dict(first = 1, second = 2 ,third = 3)
+
+squared_numbers = {key: value**2 for key,value  in numbers.items()} # this will create the dictionary {'first': 1, 'second': 4, 'third': 9} 
+
+#create dictionary 
+
+{num: num ** 2 for num in range(1,6)} # creates the dictionary {1: 1, 2: 4, 3: 9, 4: 16, 5: 25} with the key value pairs 
+
+
+# create dictionary with 2 strings 
+str1 = 'ABC'
+str2 = '123'
+
+combo = { str1[i]: str2[i] for i in range(0, len(str1)) } # creates de dictionary {'A': '1', 'B': '2', 'C': '3'} here
+                                                          # we use the index in the dictionary Comprehensions and we
+                                                          # condition the for with the lenght of the string 
+
+#manipulate existing dictionary to create other dictionary
+
+instructor = dict(name = 'Gilbert' , age = '27' )
+
+upper_instructor = {name.upper(): age.upper() for name,age in instructor.items()} # returns {'NAME': 'GILBERT', 'AGE': '27'} so we changed the keys and values to uppercase 
+
+#conditional operations in dictionary Comprehensions
+
+num_list = range(1,5)
+
+{num: ('even' if num % 2 == 0 else 'odd') for num in num_list}
 
 
 
