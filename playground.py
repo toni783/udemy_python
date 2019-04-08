@@ -167,7 +167,7 @@ my_list = [ 'hola', 'adios']
 
 my_list[0] , my_list[1] = my_list[1] , my_list[0] # returns ['adios', 'hola']   
 
-# Lists Comprehensions(for each in other lenguages)
+# Lists Comprehensions(kinda like for each in other lenguages ,map in javascript )
 
 my_list = [1,2,3]
 
@@ -194,6 +194,11 @@ person = {'name': 'Gilbert' , 27: 'my age'} #value of key in list  permitted its
 person = dict(name = 'Pedro', age = 44)  #creates dictionary {'name': 'Pedro', 'age': 44}
 
 person['name'] # returns value pedro
+
+#add key/value pair to dictionary 
+
+person['country'] = 'Venezuela'  # adds the key/value pair having now {name = 'Pedro', age = 44, country='Venezuela'}
+
 
 #format string with dictionary values 
 
@@ -229,10 +234,39 @@ copyPerson = person.copy()
 
 person.get('name') # returns Pedro if the dictionary have a property name ,if not returns None
 
+#remove value from dictionary 
 
+artist = {
+    "first": "Neil",
+    "last": "Young",
+}
 
+artist.pop('first') # delete  the key/value pair first/Neil and returns the str Neil
+artist.pop('e') # returns error KeyError since the key e doesnt exist in the dictionary 
 
+#remove random value from dictinary 
 
+artist.popitem() # removes a random value and returns the key/value pair 
+artist.popitem('a') # returns error since pop item dosnt take a argument
+
+#update value of one dictionary to another dictionary 
+
+artist = {
+    "first": "Neil",
+    "last": "Young",
+}
+
+performer = {}
+
+performer.update(artist)
+performer # performer now have the key/values {"first": "Neil","last": "Young"} since we updated the performer dictionary with the info of the artist dictionary 
+
+artist['first'] = 'Neily'
+
+performer.update(artist) # performer now have the key/values {"first": "Neily","last": "Young"} ,so the update() method
+                         # adds the key/values if they dont exist and if they exist they will update the values based in his keys 
+
+ 
 
 
 
